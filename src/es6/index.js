@@ -88,8 +88,42 @@ obj2 = {nom, edad};
 console.log(obj2);
 console.log(nom, edad);
 
+//Arrow Functions------------------------------------------------------------------------------------------
+const estudiantes = [
+    {nom: 'salome', edad: 7},
+    {nom: 'Geiner', edad: 17},    //Array de objetos
+    {nom: 'Isabella', edad: 9}
+]
+//Iterar con los eslementos
+let listOfEstudiantes = estudiantes.map(function(item){
+    console.log(item.nom, item.edad)
+});
 
+//es6
+let listOfEstudiantes2 = estudiantes.map(item => console.log(item.nom));
 
+const listOfEstudiantes3 = (nom, edad) => {
+    console.log(nom);
+}
+const listOfEstudiantes4 = nom => {
+    //...Bloque de codigo que necesitemos
+}
+let num = 2;
+const square = num => num * num;
 
-
+//Promesas -- sirve para trabajr el sincronismo -------------------------------------------------------------
+const helloPromise = () => {
+    return new Promise ((resolve, reject) => {
+        if (true){
+            resolve('Bien');
+        }
+        else{
+            reject('Mal');
+        }
+    });
+}
+helloPromise()
+    .then(response => console.log(response))
+    .then(response => console.log('Hola a todos'))
+    .catch(error => console.log(error));
 
