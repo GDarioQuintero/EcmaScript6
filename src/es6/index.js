@@ -5,13 +5,13 @@ function newFunction(nombre, edad, profesion) {
     var nombre = nombre || "German";
     var edad = edad || 23;
     var profesion = profesion || "Doctor"; 
-    console.log(nombre, edad, eprofesion);
+    console.log(nombre, edad, profesion);
 }
 newFunction();
 newFunction("Dayanna", 30, "Enfermera");
 
 //con es6
-
+  
 function newFunction2(name = "Dario", edad = 26, profesion = "docente") {
     console.log(name, edad, profesion);   
 }
@@ -94,36 +94,56 @@ const estudiantes = [
     {nom: 'Geiner', edad: 17},    //Array de objetos
     {nom: 'Isabella', edad: 9}
 ]
-//Iterar con los eslementos
+//Iterar con los elementos
 let listOfEstudiantes = estudiantes.map(function(item){
-    console.log(item.nom, item.edad)
+    console.log(item.nom, item.edad)//Por medio de una funcion anonima
 });
 
-//es6
+//es6  -- las arrow fucntion son funciones anonimas
 let listOfEstudiantes2 = estudiantes.map(item => console.log(item.nom));
 
 const listOfEstudiantes3 = (nom, edad) => {
-    console.log(nom);
+    //...Bloque de codigo que necesitemos
 }
 const listOfEstudiantes4 = nom => {
     //...Bloque de codigo que necesitemos
 }
 let num = 2;
 const square = num => num * num;
+console.log(num);
 
 //Promesas -- sirve para trabajr el sincronismo -------------------------------------------------------------
 const helloPromise = () => {
-    return new Promise ((resolve, reject) => {
+    return new Promise ((resolve, reject) => {//pueden ser otras palabras diferentes a resolve  y reject
         if (true){
-            resolve('Bien');
+            resolve('Bien'); //resuelve cuando es verdadero
         }
         else{
-            reject('Mal');
+            reject('Mal');//No resuelve cuando la validacion es falsa
         }
     });
 }
 helloPromise()
-    .then(response => console.log(response))
+    .then(response => console.log(response))//debe de ir de primero para inicializar la variable
     .then(response => console.log('Hola a todos'))
-    .catch(error => console.log(error));
+    .catch(error => console.log(error));//Necesariamente debe de ir para cuando rechaza
+
+//Clases 
+class calculadora {
+    constructor() {
+        this.a = 0;
+        this.b = 0;
+    }
+    sumar(a, b) {
+        this.a = a;
+        this.b = b;
+        return this.a + this.b;
+    }
+}
+
+const cal = new calculadora();
+console.log(cal.sumar(3, 6));
+
+
+
 

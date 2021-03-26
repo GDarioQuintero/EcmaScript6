@@ -40,3 +40,86 @@ let productos = [
 ]
 
 let lista = productos.map(item => console.log(item.nombre));
+
+
+let clientes = [
+    {name: 'Camilo', phone:'3144441022', tipo: 3},
+    {name: 'Eduardo', phone:'3102581022', tipo: 1},
+    {name: 'Sofia', phone:'3147859654', tipo: 2},
+    {name: 'Diana', phone:'3215689742', tipo: 3}
+];
+
+let listClientes = clientes.map(item => console.log(item.name, item.phone, item.tipo));
+
+
+let numero = 12;
+const miPromesa = () => {
+    return new Promise ((resolve, reject) => {
+        if (numero > 5){
+            resolve('Bien');
+        }else{
+            reject('muy malo');
+        }
+    });
+}
+
+miPromesa()
+    .then(response => console.log(response))
+    .then(response => console.log('hola a todos'))
+    .catch(error => console.log(error));
+
+    
+
+
+const nuwPromesa = () => {
+    return new Promise ((verdad, falsa) => {
+        if (false){
+            verdad('hola niños aprendi promesas');
+        }else{
+            falsa('ho nooooooo');
+        }
+    });
+}
+
+nuwPromesa()
+    .then(respuesta => console.log(respuesta))
+    .then(respuesta => console.log('Si que estoy aprendiendo'))
+    .catch(error => console.log(error));
+
+
+
+    class persona{
+        constructor(){
+            this.nom = '';
+            this.apellido = '';
+            this.ciudad = '';
+        }
+
+        saludar(nom = 'German', apellido = 'Quintero', ciudad = 'Ortega') {
+            this. nom = nom;
+            this.apellido = apellido;
+            this.ciudad = ciudad;
+
+            return `Mi nombre es ${nom} ${apellido} y vivo en ${ciudad}`;
+        }        
+    }
+
+    let p = new persona();
+    console.log(p.saludar('Dayanna', 'Leal', 'Ibague'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
