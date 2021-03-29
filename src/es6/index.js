@@ -144,6 +144,8 @@ class calculadora {
 const cal = new calculadora();
 console.log(cal.sumar(3, 6));
 
+//Modulos con import y export - Esto nos permite separar la logica en varios modulos para poder trabajarlos mejor y llamrlos segun sea el caso en el documento principal.
 
-
+import {hello} from './modulo';//Importo la array fucntion de modulo
+hello();//Ejecuto la array fucntion por que ya esta disponble
 
