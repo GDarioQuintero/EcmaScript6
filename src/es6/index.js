@@ -128,7 +128,8 @@ helloPromise()
     .then(response => console.log('Hola a todos'))
     .catch(error => console.log(error));//Necesariamente debe de ir para cuando rechaza
 
-//Clases 
+//Clases - paara trabajar herencia y objetos ---------------------------------------------------------------
+
 class calculadora {
     constructor() {
         this.a = 0;
@@ -144,8 +145,37 @@ class calculadora {
 const cal = new calculadora();
 console.log(cal.sumar(3, 6));
 
-//Modulos con import y export - Esto nos permite separar la logica en varios modulos para poder trabajarlos mejor y llamrlos segun sea el caso en el documento principal.
+//Modulos ------------------------------------------------------------------------------------------------------
+//con import y export - Esto nos permite separar la logica en varios modulos para poder trabajarlos mejor y llamrlos segun sea el caso en el documento principal.
 
 import {hello} from './modulo';//Importo la array fucntion de modulo
-hello();//Ejecuto la array fucntion por que ya esta disponble
+hello(); //Ejecuto la array fucntion por que ya esta disponble
+
+//Generetor - Funcion especila que retorna una serie de valores segun el algoritmio definido.
+
+function* helloWorld() {
+    if (true){
+        yield 'Hola, ';
+    }
+    if (true){
+        yield 'Mundo';
+    }
+};
+
+const generetorHello = helloWorld();
+console.log(generetorHello.next().value);
+console.log(generetorHello.next().value);
+console.log(generetorHello.next().value);
+
+//
+
+
+
+
+
+
+
+
+
+
 

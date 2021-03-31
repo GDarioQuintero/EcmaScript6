@@ -32,162 +32,85 @@ console.log(family);
 
 //----------------------------------------------------------------------------------------------------------
 
-let productos = [
-    {nombre: 'Arroz', precio:1800},
-    {nombre: 'Frijol', precio:2500},
-    {nombre: 'Azucar', precio:1500},
-    {nombre: 'Queso', precio:5000},
-]
-
-let lista = productos.map(item => console.log(item.nombre));
-
-
-let clientes = [
-    {name: 'Camilo', phone:'3144441022', tipo: 3},
-    {name: 'Eduardo', phone:'3102581022', tipo: 1},
-    {name: 'Sofia', phone:'3147859654', tipo: 2},
-    {name: 'Diana', phone:'3215689742', tipo: 3}
+const productos = [
+    {codigo: '001', nombre: 'Arroz', valor: 1500},
+    {codigo: '002', nombre: 'Pasta', valor: 1300},
+    {codigo: '003', nombre: 'Azucar', valor: 1200},
+    {codigo: '004', nombre: 'Frijol', valor: 3500}    
 ];
+let listaProductos = productos.map(item => console.log(item.codigo, item.nombre, item.valor)); 
 
-let listClientes = clientes.map(item => console.log(item.name, item.phone, item.tipo));
+//------------------------------------------------------------------------------------------------------------
 
-
-let numero = 12;
-const miPromesa = () => {
-    return new Promise ((resolve, reject) => {
-        if (numero > 5){
-            resolve('Bien');
-        }else{
-            reject('muy malo');
-        }
-    });
-}
-
-miPromesa()
-    .then(response => console.log(response))
-    .then(response => console.log('hola a todos'))
-    .catch(error => console.log(error));
-
-    
-
-
-const nuwPromesa = () => {
-    return new Promise ((verdad, falsa) => {
-        if (false){
-            verdad('hola niños aprendi promesas');
-        }else{
-            falsa('ho nooooooo');
-        }
-    });
-}
-
-nuwPromesa()
-    .then(respuesta => console.log(respuesta))
-    .then(respuesta => console.log('Si que estoy aprendiendo'))
-    .catch(error => console.log(error));
-
-
-
-    class persona{
-        constructor(){
-            this.nom = '';
-            this.apellido = '';
-            this.ciudad = '';
-        }
-
-        saludar(nom = 'German', apellido = 'Quintero', ciudad = 'Ortega') {
-            this. nom = nom;
-            this.apellido = apellido;
-            this.ciudad = ciudad;
-
-            return `Mi nombre es ${nom} ${apellido} y vivo en ${ciudad}`;
-        }        
-    }
-
-    let p = new persona();
-    console.log(p.saludar('Dayanna', 'Leal', 'Ibague'));
-
-
-
-
-let personas = [
-    {nombre: 'Diana', edad: 25, parentesco: 'Hermana'},
-    {nombre: 'Ruben', edad: 70, parentesco: 'Padre'},
-    {nombre: 'Gilberto', edad: 65, parentesco: 'Tio'}
-];
-
-let listaPersonas7 = personas.map(item => console.log(item.nombre, item.edad, item.parentesco));
-
+let aleatorio = Math.floor(Math.random() * (10 - 1) + 1);
 
 const myPromesa = () => {
-    return new Promise((resolver, reject) => {
-        if (false){
-            resolver('excente vamos mejorando');
-        }else{
-            reject('Que me falta');
+    return new Promise ((resuelve, reject) =>{
+        if (aleatorio >= 5)
+        {
+            resuelve('Bien el numero es: ' + aleatorio);
+        }
+        else{
+            reject('Muy mal el numero es: ' + aleatorio);
         }
     });
-};
+}
 
 myPromesa()
     .then(resultado => console.log(resultado))
-    .then(resultado => console.log('Esta ves lo hice re bien'))
-    .catch(error => console.log(error));
+    .catch(error => console.log(error)); 
 
 
 
-    class saludarPersona {
-        constructor(){
-            this.nom = '';
-            this.edad = '';
-            this.parentesco = '';
-        }
-
-         saludar(nom = 'German', edad = '28', parentesco = 'hermano') {
-             this.nom = nom;
-             this.edad = edad,
-             this.parentesco = parentesco;
-            let saludo = `Hola soy ${nom} tengo ${edad} años de edad`;    
-            return saludo;
-        }
+class persona {
+    constructor(){
+        this.a = 0;
+        this.b = 0;
     }
-    let s = new saludarPersona();
-    console.log(s.saludar());
-    console.log(s.saludar('Maria', '52', 'Madre'));
-
-
-
-
-    class myCalculadora{
-        constructor(){
-            let a = 0;
-            let b = 0;
-        }
-        multiplicar(a = 5, b = 2){
-            this.a = a;
-            this.b = b;
-            return a * b;
-           
-        }
+    sumar(a, b){
+        this.a = a;
+        this.b = b;
+        return this.a + this.b;
     }
+}
+let p = new persona();
+console.log(p.sumar(3, 6));
 
-    let c = new myCalculadora();
-    console.log(c.multiplicar());
-    console.log(c.multiplicar(10, 5));
 
-const nuevaPromesa = () => {
-    return new Promise((r, d) => {
-        if(false){
-            r('si');
-        }else{
-            d('No');
-        }
-    });
+function* myName() {
+    if(true){
+        yield 'German';
+    }
+    if(true){
+        yield 'Dario';
+    }
+    if(true){
+        yield 'Quintero';
+    }
+    if(true){
+        yield 'Perez';
+    }
 };
 
-nuevaPromesa()
-    .then(res => console.log(res))
-    .then(res => console.log('Entendido'))
-    .catch(e => console.log(e));
+const generetorName = myName();
+console.log(generetorName.next().value);
+console.log(generetorName.next().value);
+console.log(generetorName.next().value);
+console.log(generetorName.next().value);
+console.log(generetorName.next().value);
 
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
