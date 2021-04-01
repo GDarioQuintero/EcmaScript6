@@ -83,7 +83,7 @@ let ape = 'Quintero';
 obj = {nom, ape};
 console.log(nom);
 
-//Function Generetor
+//12. Function Generetor
 function* saludo(){
     if(true){
         yield 'Hola';
@@ -96,3 +96,5 @@ const generetorSaludo = saludo();
 console.log(generetorSaludo.next().value);
 console.log(generetorSaludo.next().value);
 console.log(generetorSaludo.next().value);
+
+
