@@ -1,6 +1,6 @@
 //NUEVAS CARACTERISTICAS DE ECMASCRIPT6
 
-//Parametros por defecto de una funcion-----------------------------------------------------------------
+//1. Parametros por defecto de una funcion-----------------------------------------------------------------
 function newFunction(nombre, edad, profesion) {
     var nombre = nombre || "German";
     var edad = edad || 23;
@@ -19,7 +19,7 @@ function newFunction2(name = "Dario", edad = 26, profesion = "docente") {
 newFunction2();
 newFunction2("Ruben", 35, "Plomero");
 
-//Template litrors -----------------------------------------------------------------------------------------
+//2. Template litrors -----------------------------------------------------------------------------------------
 let hello = "Hola";
 let world = "mundo";
 let saludo = hello + " " + world;
@@ -31,7 +31,7 @@ let mundo = "mundo";
 let saludo2 = `${hola} ${mundo}`;
 console.log(saludo2);
 
-//Multilinia en los string---------------------------------------------------------------------------------
+//3. Multilinia en los string---------------------------------------------------------------------------------
 let texto = "hola soy un aficionado por la programacio.\n" 
 + "y estoy seguro de que sere un buen programador";
 console.log(texto);
@@ -41,7 +41,7 @@ let texto2 = `hola soy geman quintero un ingeniero de sistemas.
 actualmente estudio en platzi`;
 console.log(texto2);
 
-//Destructuracion de elementos-------------------------------------------------------------------------
+//4. Destructuracion de elementos-------------------------------------------------------------------------
 let person = {
     'nombre': 'German',
     'age': 32,
@@ -53,13 +53,13 @@ console.log(person.nombre, person.age, person.country);
 let {nombre, age, country} = person;
 console.log(age);//puedo traer el elemento que yo quiera
 
-//Operador de propagacion- expandir varios elementos-----------------------------------------------------
+//5. Operador de propagacion- expandir varios elementos-----------------------------------------------------
 let team1 = ['German', 'Dayanna', 'Salome'];
 let team2 = ['Wilson', 'Dolly', 'Gabriel'];
 let familia = ['Ruben', ...team1, ...team2];
 console.log(familia);
 
-//Variables con var y let--------------------------------------------------------------------------------
+//6. Variables con var y let--------------------------------------------------------------------------------
 {
     var globalvar = 'Global var';
 }
@@ -75,7 +75,7 @@ console.log(a);//muestra el valor que se le asigno al ser creada con const
 a = "c";// const no deja reasignar otro valor a una constante, esta linea me da un error 
 console.log(a);
 
-//Propiedad de objetos mejorada-----------------------------------------------------------------------
+//7. Propiedad de objetos mejorada-----------------------------------------------------------------------
 let nom = 'German';
 let edad = 32;
 
@@ -88,7 +88,7 @@ obj2 = {nom, edad};
 console.log(obj2);
 console.log(nom, edad);
 
-//Arrow Functions------------------------------------------------------------------------------------------
+//8. Arrow Functions------------------------------------------------------------------------------------------
 const estudiantes = [
     {nom: 'salome', edad: 7},
     {nom: 'Geiner', edad: 17},    //Array de objetos
@@ -112,7 +112,7 @@ let num = 2;
 const square = num => num * num;
 console.log(num);
 
-//Promesas -- sirve para trabajr el sincronismo -------------------------------------------------------------
+//9. Promesas -- sirve para trabajr el sincronismo -------------------------------------------------------------
 const helloPromise = () => {
     return new Promise ((resolve, reject) => {//pueden ser otras palabras diferentes a resolve  y reject
         if (true){
@@ -128,7 +128,7 @@ helloPromise()
     .then(response => console.log('Hola a todos'))
     .catch(error => console.log(error));//Necesariamente debe de ir para cuando rechaza
 
-//Clases - paara trabajar herencia y objetos ---------------------------------------------------------------
+//10. Clases - paara trabajar herencia y objetos ---------------------------------------------------------------
 
 class calculadora {
     constructor() {
@@ -145,13 +145,13 @@ class calculadora {
 const cal = new calculadora();
 console.log(cal.sumar(3, 6));
 
-//Modulos ------------------------------------------------------------------------------------------------------
+//11. Modulos ------------------------------------------------------------------------------------------------------
 //con import y export - Esto nos permite separar la logica en varios modulos para poder trabajarlos mejor y llamrlos segun sea el caso en el documento principal.
 
 import {hello} from './modulo';//Importo la array fucntion de modulo
 hello(); //Ejecuto la array fucntion por que ya esta disponble
 
-//Generetor - Funcion especila que retorna una serie de valores segun el algoritmio definido.
+//12. Generetor - Funcion especila que retorna una serie de valores segun el algoritmio definido.
 
 function* helloWorld() {
     if (true){

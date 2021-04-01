@@ -1,116 +1,98 @@
-function miFuncion(nombre = 'German', telefono = '3144441022', correo = 'ing.germanquintero@gmail.com'){
-    console.log(nombre, telefono, correo);
+//Pracica sobre ecmaScript6
+
+//1. parametros por defecto de una funcion
+function persona(nom = 'German', edad = 32, pais = 'colombia') {
+    console.log(nom, edad, pais);    
 }
+persona();
+persona('Dayanna', 27, 'Mexico');
 
-miFuncion();
-miFuncion('Dayanna', '3107927479', 'lealdayanna@gmail.com');
+//2. templete litros - concatenar varrios string en uno solo
+let nombre = 'Alisso Salome';
+let apellido = 'Quintero Momtaña';
+let nomCompleto = `Mi nombre es ${nombre} ${apellido}`;
+console.log(nomCompleto);
 
-//----------------------------------------------------------------------------------------------------------
+//3. Multilinea con los templete
+let parrafo = `Esto es un ejemplo de multilinea,
+esto es otra linea haciendo uso de los templete`;
+console.log(parrafo);
 
-let nombres = 'German Dario';
-let apellidos = 'Quintero Perez';
-let nombreCompleto = `${nombres} ${apellidos}`;
-console.log(nombreCompleto);
-
-//---------------------------------------------------------------------------------------------------------
-
-let person = {
-    'nom': 'German',
-    'age': 30,
-    'country': 'Colombia'
+//4. Destructuracion de objetos
+const empleado = {
+    'nom': 'Geiner', 'ape': 'Montaña',
 }
+let {nom, ape} = empleado;
+console.log(ape);
 
-let = {nom, age, country} = person;
-console.log(nom, country);
+//5. Operador de prolongacion - permite unir varios array
+let hijas = ['Dolly', 'Diana'];
+let hijos = ['German', 'Ruben'];
+let familia = ['Dario', 'Nilsa', ...hijas, ...hijos];
+console.log(familia);
 
-//--------------------------------------------------------------------------------------------------------
-
-let grupo1 = ['dayanna', 'diana', 'dolly'];
-let grupo2 = ['wilson', 'german', 'ruben'];
-let family = ['Nilsa', ...grupo1, ...grupo2];
-console.log(family);
-
-//----------------------------------------------------------------------------------------------------------
-
+//6. Array function - sirve para recorreo un array de objetos
 const productos = [
-    {codigo: '001', nombre: 'Arroz', valor: 1500},
-    {codigo: '002', nombre: 'Pasta', valor: 1300},
-    {codigo: '003', nombre: 'Azucar', valor: 1200},
-    {codigo: '004', nombre: 'Frijol', valor: 3500}    
+    {nom: 'Arroz', valor: 1500},
+    {nom: 'Alverja', valor: 2000},
+    {nom: 'Frijol', valor: 4500},
+    {nom: 'Aceite', valor: 3500},
 ];
-let listaProductos = productos.map(item => console.log(item.codigo, item.nombre, item.valor)); 
+let listProductos = productos.map(item => console.log(item.nom, item.valor));
 
-//------------------------------------------------------------------------------------------------------------
-
-let aleatorio = Math.floor(Math.random() * (10 - 1) + 1);
-
+//7. Las Promesas - Sivern para manejar el asincronismo 
 const myPromesa = () => {
-    return new Promise ((resuelve, reject) =>{
-        if (aleatorio >= 5)
-        {
-            resuelve('Bien el numero es: ' + aleatorio);
-        }
-        else{
-            reject('Muy mal el numero es: ' + aleatorio);
-        }
+    return new Promise((resolve, reject) => {
+        (true)
+        ? setTimeout(() => resolve('MUY BIEN'), 5000)
+        : reject('MUT MAL')
     });
-}
-
-myPromesa()
-    .then(resultado => console.log(resultado))
-    .catch(error => console.log(error)); 
-
-
-
-class persona {
-    constructor(){
-        this.a = 0;
-        this.b = 0;
-    }
-    sumar(a, b){
-        this.a = a;
-        this.b = b;
-        return this.a + this.b;
-    }
-}
-let p = new persona();
-console.log(p.sumar(3, 6));
-
-
-function* myName() {
-    if(true){
-        yield 'German';
-    }
-    if(true){
-        yield 'Dario';
-    }
-    if(true){
-        yield 'Quintero';
-    }
-    if(true){
-        yield 'Perez';
-    }
 };
+myPromesa()
+    .then(resultsdo => console.log(resultsdo))
+    .catch(error => console.log(error));
 
-const generetorName = myName();
-console.log(generetorName.next().value);
-console.log(generetorName.next().value);
-console.log(generetorName.next().value);
-console.log(generetorName.next().value);
-console.log(generetorName.next().value);
+//8. Clases
+class estudiantes {
+    constructor(){
+        this.nombre = '';
+        this.grado = '';
+    }
+    saludar(nombre = 'Maria', grado = 'Prescolar'){
+        this.nombre = nombre;
+        this.grado = grado;
+        let saludo = `Hola ${this.nombre} del grado ${this.grado}`;
+        console.log(saludo);
+    }
+}
+let alumno = new estudiantes();
+alumno.saludar();
+alumno.saludar('Salome', 'Segundo');
 
+//9. modulos con impot y export
+import {helloWorld} from './modulo2';
+helloWorld();
 
+//10. Variables let y const 
+let valueA = '';
+const valueB = '';
 
+//11. Propiedad de objetos mejorada
+let nom = 'salome';
+let ape = 'Quintero';
+obj = {nom, ape};
+console.log(nom);
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Function Generetor
+function* saludo(){
+    if(true){
+        yield 'Hola';
+    }
+    if(true){
+        yield 'Mundo';
+    }
+}
+const generetorSaludo = saludo();
+console.log(generetorSaludo.next().value);
+console.log(generetorSaludo.next().value);
+console.log(generetorSaludo.next().value);
